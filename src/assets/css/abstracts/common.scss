@@ -1,0 +1,27 @@
+body {
+  font-family: 'NanumSquareNeo';
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.7;
+  overflow-x: hidden;
+  max-width: 1920px;
+  margin: 0 auto;
+  background-color: #ccc;
+  color: #222;
+}
+.vue-devtools__anchor {
+  display: none;
+}
+
+.marker {
+  display: inline;
+  box-shadow: inset 0 -10px 0 #9dc3ffa6;
+  /*-10px은 highlight의 두께*/
+  color: #222 !important;
+}
+
+@media screen and (max-width: 576px) {
+  body {
+    font-size: 16px;
+  }
+}

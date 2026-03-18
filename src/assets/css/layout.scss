@@ -1,0 +1,218 @@
+@use './base/reset';
+@use './base/font';
+@use './abstracts/variables';
+@use './abstracts/mixins';
+@use './abstracts/common';
+@use './abstracts/animation';
+//사이드
+aside {
+  height: 100vh;
+  padding-left: 30px;
+  padding-top: 100px;
+  box-sizing: border-box;
+  width: 600px;
+  min-width: 600px;
+  background-color: #f8faff;
+  padding-right: 60px;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 50px;
+}
+.info-cont {
+  .profile-wrap {
+    @include mixins.flex-between;
+    margin-bottom: 50px;
+    gap: 30px;
+    .img-bx {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: #fff;
+      img {
+        width: 80%;
+        margin: 0 auto;
+        transform: translateY(30px);
+      }
+    }
+    .list-wrap {
+      width: 250px;
+      ul {
+        li {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 10px;
+          font-weight: 600;
+          font-size: 15px;
+          white-space: wrap;
+          a {
+            overflow-wrap: break-word;
+            word-break: break-all;
+          }
+          &:last-child {
+            margin-bottom: 0;
+          }
+          .ico {
+            width: fit-content;
+          }
+          p {
+            width: calc(100% - 35px);
+            line-height: 1.4;
+          }
+        }
+      }
+      button {
+        margin-top: 30px;
+        background: none;
+        border: 1px solid variables.$main-color;
+        color: variables.$main-color;
+        padding: 5px 20px;
+        box-sizing: border-box;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        line-height: 1.7;
+        transition: 0.2s;
+        @include mixins.transition-hover;
+        &:hover {
+          background-color: variables.$main-color;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .ability-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    .list-bx {
+      h3 {
+        color: variables.$main-color;
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        white-space: nowrap;
+        font-family: 'Escoredream';
+        animation: fade-in 1s 0s forwards;
+        &::after {
+          content: '';
+          width: 100%;
+          height: 1px;
+          background: variables.$main-color;
+          display: block;
+          animation: fade-border 2s 0s forwards;
+          opacity: 0;
+        }
+      }
+      ul {
+        li {
+          font-size: 15px;
+          display: flex;
+          gap: 3px;
+          word-break: keep-all;
+          margin-bottom: 8px;
+          font-weight: 600;
+          animation: fade-up 1s 0.7s forwards;
+          opacity: 0;
+          p {
+            width: 100%;
+            small {
+              font-size: 14px;
+              color: variables.$gray-color;
+              display: block;
+            }
+          }
+          &:last-child {
+            margin-bottom: 0;
+          }
+          &::before {
+            content: '•';
+          }
+        }
+      }
+    }
+  }
+}
+//푸터
+footer {
+  background-color: variables.$main-color;
+  height: 80px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  display: none;
+  .footer-inner {
+    @include mixins.flex-center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    gap: 50px;
+    .btn {
+      background: none;
+      border: none;
+      font-size: 14px;
+      @include mixins.flex-center;
+      justify-content: end;
+      flex-direction: column;
+      gap: 3px;
+      color: #fff;
+      .ico {
+        width: 25px;
+        display: block;
+        -webkit-filter: brightness(0) invert(1);
+        filter: brightness(0) invert(1);
+      }
+    }
+    .btn-home {
+      transform: translateY(1px);
+      font-size: 13px;
+    }
+    .btn-top {
+      .ico {
+        width: 20px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1400px) {
+  aside {
+    width: 400px;
+    min-width: 400px;
+  }
+  .info-cont {
+    .profile-wrap {
+      flex-direction: column;
+      .list-wrap {
+        width: 100%;
+      }
+    }
+    .ability-wrap {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  aside {
+    position: unset;
+    width: 100%;
+    height: auto;
+    display: none;
+  }
+  .info-cont {
+    padding-bottom: 60px;
+  }
+  footer {
+    display: block;
+  }
+}

@@ -1,0 +1,451 @@
+@use './base/reset';
+@use './base/font';
+@use './abstracts/variables';
+@use './abstracts/mixins';
+@use './abstracts/common';
+@use './abstracts/animation';
+
+html {
+  scroll-behavior: smooth;
+}
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+//메인
+main {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  position: relative;
+
+  //컨테이너
+  .container {
+    padding-top: 100px;
+    padding-right: 152px;
+    padding-left: 60px;
+    box-sizing: border-box;
+    width: calc(100% - 600px);
+    position: relative;
+
+    //공통
+    .sec {
+      margin-bottom: 80px;
+      width: 100%;
+      &-inner {
+        dl {
+          dt {
+            font-size: 28px;
+            color: variables.$main-color;
+            margin-bottom: 10px;
+            font-family: 'Escoredream';
+            font-weight: 700;
+          }
+          dd {
+            text-align: justify;
+            .font-large {
+              font-size: 120%;
+            }
+            b {
+              font-weight: 800;
+            }
+            span {
+              //   text-decoration: underline;
+              //   text-underline-offset: 7px;
+              font-weight: 700;
+              color: variables.$sub-color;
+            }
+          }
+          &.type01 {
+            padding: 5px 0 5px 30px;
+            height: fit-content;
+            position: relative;
+            dt {
+              animation: fade-right 1s 1s forwards;
+              opacity: 0;
+            }
+            dd {
+              animation: fade-right 1s 1s forwards;
+              opacity: 0;
+            }
+            &::after {
+              content: '';
+              width: 4px;
+              height: 100%;
+              background-color: variables.$sub-color;
+              display: block;
+              left: 0;
+              top: 0;
+              position: absolute;
+              animation: fade-border02 1s 0.5s forwards;
+              opacity: 0;
+            }
+          }
+          &.type02 {
+            dt {
+              margin-bottom: 30px;
+              span {
+                display: block;
+                opacity: 0;
+              }
+              &::after {
+                content: '';
+                width: 100%;
+                height: 1px;
+                background-color: variables.$sub-color;
+                display: block;
+                margin-top: 20px;
+                opacity: 0;
+              }
+            }
+            dd {
+              opacity: 0;
+            }
+          }
+        }
+      }
+      ol {
+        &::before {
+          content: '';
+          height: 2px;
+          background-color: variables.$main-color;
+          display: block;
+          margin-bottom: 30px;
+          animation: fade-border03 1s 0.5s forwards;
+          opacity: 0;
+        }
+        li {
+          margin-bottom: 20px;
+          opacity: 0;
+          animation: fade-up 1s 1s forwards;
+          &:first-child {
+            p {
+              display: flex;
+              gap: 10px;
+              span {
+                &:first-child {
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                  &::after {
+                    content: '';
+                    display: block;
+                    width: 2px;
+                    height: 20px;
+                    background-color: #ccc;
+                  }
+                }
+              }
+            }
+          }
+          &:last-child {
+            margin-bottom: 0;
+          }
+          h6 {
+            font-size: 22px;
+            margin-bottom: 5px;
+            font-weight: 800;
+            span {
+              color: variables.$main-color;
+            }
+          }
+        }
+      }
+      &.on {
+        .type02 {
+          dt {
+            span {
+              animation: fade-up 1s 0.3s forwards;
+            }
+            &::after {
+              animation: fade-border 1s 0s forwards;
+            }
+          }
+          dd {
+            animation: fade-up 1s 0.3s forwards;
+          }
+        }
+      }
+    }
+    //섹션01
+    .sec01 {
+      .sec-inner {
+        .btn-home {
+          margin-bottom: 60px;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          color: variables.$main-color;
+          width: fit-content;
+
+          .ico {
+            width: 26px;
+            display: block;
+            transform: translateY(-2px);
+          }
+        }
+        .tit-bx {
+          font-family: 'Escoredream';
+          margin-bottom: 80px;
+          animation: fade-up 1s 0s forwards;
+          opacity: 0;
+          h5 {
+            font-size: 22px;
+            color: variables.$gray-color;
+            font-weight: 600;
+            line-height: 1.2;
+          }
+          h1 {
+            font-size: 40px;
+            font-weight: 800;
+            span {
+              color: variables.$main-color;
+            }
+          }
+        }
+      }
+    }
+    //섹션02
+    .sec02 {
+      .sec-inner {
+        dl {
+          &.type02 {
+            &.on {
+              dt {
+                span {
+                  animation: fade-up 1s 1.8s forwards;
+                }
+                &::after {
+                  animation: fade-border 1s 1.5s forwards;
+                }
+              }
+              dd {
+                animation: fade-up 1s 1.8s forwards;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .project-sec {
+      .sec-inner {
+        dl {
+          dd {
+            @include mixins.flex-between;
+            gap: 10px;
+          }
+        }
+        .swiper-navi {
+          @include mixins.flex-center;
+          gap: 10px;
+          .swiper-btn {
+            position: unset;
+            margin-top: 0;
+            border: 1px solid variables.$sub-color;
+            padding: 5px;
+            box-sizing: border-box;
+            outline: none;
+            border-radius: 50%;
+            transition: 0.2s;
+            -webkit-transition: 0.2s;
+            &:hover {
+              background-color: variables.$sub-color;
+              color: #fff;
+            }
+            svg {
+              width: 10px;
+            }
+          }
+          .swiper-pagination {
+            position: unset;
+            width: 45px;
+            color: variables.$sub-color;
+            display: flex;
+            gap: 3px;
+            .swiper-pagination-current {
+              font-weight: 900;
+            }
+          }
+        }
+        .swiper {
+          margin-top: 20px;
+          padding: 20px 0;
+          opacity: 0;
+          .swiper-slide {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow:
+              0 15px 20px -10px rgba(0, 20, 40, 0.25),
+              inset 0 1px 2px rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 2rem 2.5rem 2.8rem;
+            transition: all 0.3s ease;
+            border: 1px solid #e4e4e4;
+            padding: 20px;
+            box-sizing: border-box;
+            &:hover {
+              transform: translateY(-10px);
+            }
+            .img-bx {
+              margin-bottom: 20px;
+              width: 100%;
+              height: 180px;
+              overflow: hidden;
+              position: relative;
+              img {
+                object-fit: cover;
+                object-position: top;
+                height: 100%;
+              }
+              &::after {
+                content: '';
+                @include mixins.position-center;
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-color: #00000000;
+                box-shadow: 0px -1px 10px 0px rgba(0, 0, 0, 0.2) inset;
+                -webkit-box-shadow: 0px -1px 10px 0px rgba(0, 0, 0, 0.2) inset;
+                -moz-box-shadow: 0px -1px 10px 0px rgba(0, 0, 0, 0.2) inset;
+              }
+            }
+            h6 {
+              font-size: 15px;
+              color: variables.$gray-color;
+            }
+            h4 {
+              font-size: 20px;
+              font-weight: 700;
+              margin-bottom: 10px;
+            }
+            h5 {
+              margin-top: 5px;
+              color: variables.$main-color;
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              font-size: 15px;
+              .ico {
+                width: 13px;
+                display: block;
+              }
+            }
+          }
+        }
+      }
+      &.on {
+        .swiper {
+          animation: fade-up 1s 0.5s forwards;
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  main {
+    .container {
+      padding-right: 60px;
+    }
+  }
+}
+@media screen and (max-width: 1400px) {
+  main {
+    .container {
+      width: calc(100% - 400px);
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  main {
+    flex-direction: column-reverse;
+    .container {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-bottom: 100px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    .container {
+      .project-sec {
+        .sec-inner {
+          dl {
+            margin-bottom: 10px;
+            dd {
+              flex-direction: column;
+              align-items: start;
+              gap: 20px;
+            }
+          }
+          .swiper {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  main {
+    .container {
+      padding-top: 60px;
+      .sec {
+        margin-bottom: 40px;
+        dl {
+          dt {
+            font-size: 26px;
+          }
+        }
+        ol {
+          li {
+            h6 {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+      .sec01 {
+        .sec-inner {
+          .tit-bx {
+            margin-bottom: 40px;
+            h1 {
+              font-size: 32px;
+            }
+          }
+          dl {
+            padding: 5px 0 5px 20px;
+            &.type01 {
+              &::after {
+                width: 3px;
+              }
+            }
+          }
+        }
+      }
+      .project-sec {
+        .sec-inner {
+          .swiper {
+            margin-top: 0;
+            .swiper-slide {
+              .img-bx {
+                height: 150px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
