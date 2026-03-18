@@ -6,8 +6,10 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
+// Swiper 모듈
 const modules = [Navigation, Pagination]
-// 반응형
+
+// 반응형 설정
 const breakpoints = {
   320: {
     slidesPerView: 1.1,
@@ -30,14 +32,15 @@ const breakpoints = {
     spaceBetween: 30,
   },
 }
-//내용
+
+// 외부 이미지 URL (중요: new URL ❌)
 const projects = [
   {
     id: 1,
     company: '삼구아이앤씨',
     tit: '삼구애 웹진',
     desc: '월간 웹진으로 매달 새로운 호 코딩',
-    img: new URL('../assets/images/project01.jpg', import.meta.url).href,
+    img: 'https://mavin-resume.s3.ap-southeast-2.amazonaws.com/project01.jpg',
     route: 'Project01',
   },
   {
@@ -45,7 +48,7 @@ const projects = [
     company: 'TS 한국교통안전공단',
     tit: 'TS 매거진',
     desc: '월간 웹진으로 매달 새로운 호 코딩',
-    img: new URL('../assets/images/project02.jpg', import.meta.url).href,
+    img: 'https://mavin-resume.s3.ap-southeast-2.amazonaws.com/project02.jpg',
     route: 'Project01',
   },
   {
@@ -53,7 +56,7 @@ const projects = [
     company: '공무원연금공단',
     tit: '공무원연금 웹진',
     desc: '월간 웹진으로 매달 새로운 호 코딩',
-    img: new URL('../assets/images/project03.jpg', import.meta.url).href,
+    img: 'https://mavin-resume.s3.ap-southeast-2.amazonaws.com/project03.jpg',
     route: 'Project01',
   },
   {
@@ -61,7 +64,7 @@ const projects = [
     company: '용산구청',
     tit: '용산구 소식지',
     desc: '월간 웹진으로 매달 새로운 호 코딩',
-    img: new URL('../assets/images/project04.jpg', import.meta.url).href,
+    img: 'https://mavin-resume.s3.ap-southeast-2.amazonaws.com/project04.jpg',
     route: 'Project01',
   },
   {
@@ -69,7 +72,7 @@ const projects = [
     company: '방위사업청',
     tit: '청아람',
     desc: '월간 웹진으로 매달 새로운 호 코딩',
-    img: new URL('../assets/images/project05.jpg', import.meta.url).href,
+    img: 'https://mavin-resume.s3.ap-southeast-2.amazonaws.com/project05.jpg',
     route: 'Project01',
   },
   {
@@ -77,7 +80,7 @@ const projects = [
     company: '지방공공기관',
     tit: '지방공기업 웹진',
     desc: '월간 웹진으로 매달 새로운 호 코딩',
-    img: new URL('../assets/images/project06.jpg', import.meta.url).href,
+    img: 'https://mavin-resume.s3.ap-southeast-2.amazonaws.com/project06.jpg',
     route: 'Project01',
   },
   {
@@ -85,7 +88,7 @@ const projects = [
     company: '감정평가사',
     tit: '감정평가 웹진',
     desc: '월간 웹진으로 매달 새로운 호 코딩',
-    img: new URL('../assets/images/project07.jpg', import.meta.url).href,
+    img: 'https://mavin-resume.s3.ap-southeast-2.amazonaws.com/project07.jpg',
     route: 'Project01',
   },
   {
@@ -93,7 +96,7 @@ const projects = [
     company: '도로교통공단',
     tit: '신호등',
     desc: '월간 웹진으로 매달 새로운 호 코딩',
-    img: new URL('../assets/images/project08.jpg', import.meta.url).href,
+    img: 'https://mavin-resume.s3.ap-southeast-2.amazonaws.com/project08.jpg',
     route: 'Project01',
   },
   {
@@ -101,7 +104,7 @@ const projects = [
     company: '한국중부발전',
     tit: '중부가족',
     desc: '월간 웹진으로 매달 새로운 호 코딩',
-    img: new URL('../assets/images/project09.jpg', import.meta.url).href,
+    img: 'https://mavin-resume.s3.ap-southeast-2.amazonaws.com/project09.jpg',
     route: 'Project01',
   },
   {
@@ -109,7 +112,7 @@ const projects = [
     company: '고용노동부',
     tit: '월간내일',
     desc: '월간 웹진으로 매달 새로운 호 코딩',
-    img: new URL('../assets/images/project10.jpg', import.meta.url).href,
+    img: 'https://mavin-resume.s3.ap-southeast-2.amazonaws.com/project10.jpg',
     route: 'Project01',
   },
   {
@@ -117,16 +120,18 @@ const projects = [
     company: '서울시의회',
     tit: '서울의회 웹진',
     desc: '월간 웹진으로 매달 새로운 호 코딩',
-    img: new URL('../assets/images/project11.jpg', import.meta.url).href,
+    img: 'https://mavin-resume.s3.ap-southeast-2.amazonaws.com/project11.jpg',
     route: 'Project01',
   },
 ]
 </script>
+
 <template>
   <dl class="type02">
     <dt><span>포트폴리오</span></dt>
     <dd>
       <div>(웹진) 웹 매거진으로 잡지형태의 웹사이트</div>
+
       <div class="swiper-navi">
         <div class="swiper-button-prev swiper-btn"></div>
         <div class="swiper-pagination"></div>
@@ -134,7 +139,8 @@ const projects = [
       </div>
     </dd>
   </dl>
-  <swiper
+
+  <Swiper
     :modules="modules"
     :slides-per-view="3"
     :space-between="30"
@@ -148,7 +154,7 @@ const projects = [
     }"
     :breakpoints="breakpoints"
     class="swiper-project">
-    <swiper-slide v-for="project in projects" :key="project.id">
+    <SwiperSlide v-for="project in projects" :key="project.id">
       <router-link :to="{ name: project.route }">
         <div class="img-bx">
           <img :src="project.img" :alt="project.tit" />
@@ -162,11 +168,11 @@ const projects = [
           <h5>
             작업내용 보기
             <span class="ico">
-              <img src="../assets/images/icons/ico_arrow_right.png" alt="" />
+              <img src="https://mavin-resume.s3.ap-southeast-2.amazonaws.com/icons/ico_arrow_right.png" alt="" />
             </span>
           </h5>
         </hgroup>
       </router-link>
-    </swiper-slide>
-  </swiper>
+    </SwiperSlide>
+  </Swiper>
 </template>

@@ -1,5 +1,5 @@
 <script setup>
-import Project from '../components/Project.vue'
+import Project from '@/components/Project.vue'
 import { useScrollAnimation } from '@/composables/useScrollAnimation'
 
 useScrollAnimation()

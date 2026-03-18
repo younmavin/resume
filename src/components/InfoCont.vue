@@ -1,10 +1,9 @@
 <script setup>
-// 아이콘 import
-import icoUser from '@/assets/images/icons/ico_user.png'
-import icoMail from '@/assets/images/icons/ico_mail.png'
-import icoCall from '@/assets/images/icons/ico_call.png'
-import icoGit from '@/assets/images/icons/ico_git.png'
-import icoArrow from '@/assets/images/icons/ico_arrow_right.png'
+const icoUser = 'https://mavin-resume.s3.ap-southeast-2.amazonaws.com/icons/ico_user.png'
+const icoMail = 'https://mavin-resume.s3.ap-southeast-2.amazonaws.com/icons/ico_mail.png'
+const icoCall = 'https://mavin-resume.s3.ap-southeast-2.amazonaws.com/icons/ico_call.png'
+const icoGit = 'https://mavin-resume.s3.ap-southeast-2.amazonaws.com/icons/ico_git.png'
+const icoArrow = 'https://mavin-resume.s3.ap-southeast-2.amazonaws.com/icons/ico_arrow_right.png'
 
 // 프로필 정보
 const profileInfo = [
@@ -65,15 +64,24 @@ const abilities = [
     <!-- 프로필 -->
     <div class="profile-wrap">
       <div class="img-bx">
-        <img src="@/assets/images/profile.png" alt="프로필 사진" />
+        <img src="https://mavin-resume.s3.ap-southeast-2.amazonaws.com/profile.png" alt="프로필 사진" />
       </div>
+
       <div class="list-wrap">
         <ul>
           <li v-for="(item, i) in profileInfo" :key="i">
-            <span class="ico"><img :src="item.icon" alt="" /></span>
-            <p v-if="!item.link">{{ item.content }}</p>
+            <span class="ico">
+              <img :src="item.icon" alt="" />
+            </span>
+
+            <p v-if="!item.link">
+              {{ item.content }}
+            </p>
+
             <p v-else>
-              <a :href="item.link" target="_blank">{{ item.content }}</a>
+              <a :href="item.link" target="_blank">
+                {{ item.content }}
+              </a>
             </p>
           </li>
         </ul>
@@ -84,11 +92,14 @@ const abilities = [
     <div class="ability-wrap">
       <div class="list-bx" v-for="(section, idx) in abilities" :key="idx">
         <h3>{{ section.tit }}</h3>
+
         <ul>
           <li v-for="(item, i) in section.list" :key="i">
             <p>
               {{ item.name }}
-              <small v-if="item.period">{{ item.period }}</small>
+              <small v-if="item.period">
+                {{ item.period }}
+              </small>
             </p>
           </li>
         </ul>

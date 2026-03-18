@@ -9,7 +9,7 @@ useScrollAnimation()
   <article class="sec01 sec">
     <div class="sec-inner">
       <router-link to="/" class="btn-home">
-        <span class="ico"> <img src="../assets/images/icons/ico_home.png" alt="" /></span> 이력서 보기
+        <span class="ico"> <img src="https://mavin-resume.s3.ap-southeast-2.amazonaws.com/icons/ico_home.png" alt="" /></span> 이력서 보기
       </router-link>
       <hgroup class="tit-bx">
         <h5>삼구아이앤씨</h5>
