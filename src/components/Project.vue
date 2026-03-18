@@ -33,7 +33,6 @@ const breakpoints = {
   },
 }
 
-// 외부 이미지 URL (중요: new URL ❌)
 const projects = [
   {
     id: 1,
