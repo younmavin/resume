@@ -100,7 +100,7 @@ const projects = [
     id: 9,
     company: '한국중부발전',
     tit: '중부가족',
-    desc: '월간 웹진으로 매달 새로운 호 코딩1111',
+    desc: '월간 웹진으로 매달 새로운 호 코딩',
     img: new URL('../assets/images/project09.jpg', import.meta.url).href,
     route: 'Project01',
   },
