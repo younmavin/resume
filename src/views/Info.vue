@@ -1,5 +1,5 @@
 <script setup>
-import InfoCont from '../components/InfoCont.vue'
+import InfoCont from '@/components/InfoCont.vue'
 </script>
 <template>
   <InfoCont />

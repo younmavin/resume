@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted } from 'vue'
 import Lenis from 'lenis'
-import InfoCont from './components/InfoCont.vue'
-import Footer from './components/Footer.vue'
+import InfoCont from '@/components/InfoCont.vue'
+import Footer from '@/components/Footer.vue'
 
 onMounted(() => {
   const lenis = new Lenis()
