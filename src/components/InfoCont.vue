@@ -10,7 +10,7 @@ const profileInfo = [
   { icon: icoUser, content: '윤관호 / 1996.04.12' },
   { icon: icoMail, content: 'ddw6229@naver.com', link: 'mailto:ddw6229@naver.com' },
   { icon: icoCall, content: '010-9506-1006', link: 'tel:010-9506-1006' },
-  { icon: icoGit, content: 'https://github.com/youngwanho', link: 'https://github.com/youngwanho' },
+  { icon: icoGit, content: 'https://github.com/younmavin', link: 'https://github.com/younmavin' },
 ]
 
 // 학력, 경력, 스킬, 자격증
@@ -18,7 +18,7 @@ const abilities = [
   {
     tit: '학력',
     list: [
-      { name: '자연과학고등학교(식물학)', period: '2015.02 졸업' },
+      { name: '자연과학고등학교', period: '2015.02 졸업' },
       { name: '목포대학교(간호학)', period: '2015.03 ~ 2020.06 중퇴' },
       { name: '학점은행제(컴퓨터공학 + 관광경영학)', period: '2024.02 ~ 현재' },
     ],
@@ -46,6 +46,7 @@ const abilities = [
   {
     tit: '자격증',
     list: [
+      { name: '정보처리 산업기사' },
       { name: '웹디자인 기능사' },
       { name: 'GTQ 1급(포토샵)' },
       { name: 'GTQI 1급(일러스트)' },
